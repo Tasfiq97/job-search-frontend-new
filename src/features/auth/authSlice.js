@@ -35,10 +35,14 @@ export const loginUser = createAsyncThunk("auth/loginUser", async ({ email, pass
   return data.user.email;
 });
 export const googleSignIn = createAsyncThunk("auth/googleSignIn", async () => {
-  const googleProvider = new GoogleAuthProvider();
-  const data = await signInWithPopup(auth, googleProvider);
+  try {
+    const googleProvider = new GoogleAuthProvider();
+    const data = await signInWithPopup(auth, googleProvider);
 
-  return data.user.email;
+    return data.user.email;
+  } catch (error) {
+    throw new Error(error);
+  }
 });
 const authSlice = createSlice({
   name: "auth",

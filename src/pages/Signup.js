@@ -33,9 +33,7 @@ const Signup = () => {
     dispatch(createUser({ email: data.email, password: data.password }));
     navigate("/");
   };
-  const handleGoogleSignIn = () => {
-    dispatch(googleSignIn());
-  };
+
   useEffect(() => {
     if (isError) {
       toast.error(error);
@@ -88,13 +86,13 @@ const Signup = () => {
                   </span>
                 </p>
               </div>
-              <button
+              {/* <button
                 type="submit"
                 className="font-bold text-white py-3 rounded-full bg-primary w-full"
                 onClick={handleGoogleSignIn}
               >
                 Signup with google
-              </button>
+              </button> */}
             </div>
           </form>
         </div>

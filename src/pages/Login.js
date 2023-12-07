@@ -26,7 +26,7 @@ const Login = () => {
     }
   }, [isLoading, email]);
   const handleGoogleSignIn = () => {
-    dispatch(googleSignIn());
+    dispatch(googleSignIn()).then((action) => console.log(action));
   };
 
   useEffect(() => {
@@ -55,27 +55,17 @@ const Login = () => {
                 <label htmlFor="password" className="ml-5">
                   Password
                 </label>
-                <input
-                  type="password"
-                  id="password"
-                  {...register("password")}
-                />
+                <input type="password" id="password" {...register("password")} />
               </div>
               <div className="relative !mt-8">
-                <button
-                  type="submit"
-                  className="font-bold text-white py-3 rounded-full bg-primary w-full"
-                >
+                <button type="submit" className="font-bold text-white py-3 rounded-full bg-primary w-full">
                   Login
                 </button>
               </div>
               <div>
                 <p>
                   Don't have an account?{" "}
-                  <span
-                    className="text-primary hover:underline cursor-pointer"
-                    onClick={() => navigate("/signup")}
-                  >
+                  <span className="text-primary hover:underline cursor-pointer" onClick={() => navigate("/signup")}>
                     Sign up
                   </span>
                 </p>
