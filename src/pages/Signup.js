@@ -31,7 +31,7 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     dispatch(createUser({ email: data.email, password: data.password }));
-    // console.log(data);
+    navigate("/");
   };
   const handleGoogleSignIn = () => {
     dispatch(googleSignIn());
@@ -56,34 +56,20 @@ const Signup = () => {
                 <label htmlFor="email" className="ml-5">
                   Email
                 </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  {...register("email")}
-                />
+                <input type="email" name="email" id="email" {...register("email")} />
               </div>
 
               <div className="flex flex-col items-start">
                 <label htmlFor="password" className="ml-5">
                   Password
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  {...register("password")}
-                />
+                <input type="password" name="password" id="password" {...register("password")} />
               </div>
               <div className="flex flex-col items-start">
                 <label htmlFor="confirm-password" className="ml-5">
                   Confirm Password
                 </label>
-                <input
-                  type="password"
-                  id="confirm-password"
-                  {...register("confirmPassword")}
-                />
+                <input type="password" id="confirm-password" {...register("confirmPassword")} />
               </div>
               <div className="!mt-8 ">
                 <button
@@ -97,10 +83,7 @@ const Signup = () => {
               <div>
                 <p>
                   Already have an account?{" "}
-                  <span
-                    className="text-primary hover:underline cursor-pointer"
-                    onClick={() => navigate("/login")}
-                  >
+                  <span className="text-primary hover:underline cursor-pointer" onClick={() => navigate("/login")}>
                     Login
                   </span>
                 </p>
